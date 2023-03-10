@@ -104,3 +104,28 @@ input:checked {
 }
 
 
+.tempo-container {
+  position: absolute;
+  margin: 20px;
+  top: 10%;
+  left: 50%;
+}
+
+
+
+#tempo {
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  
+}
+
+#btn {
+background-color: #000000;
+border: none;
+color: #ffffff;
+font-size: 30px;
+font-weight: 600;
+vertical-align: middle;
+ 
+}
