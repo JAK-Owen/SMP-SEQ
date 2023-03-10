@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.6/Tone.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/nexusui@latest/dist/NexusUI.js'></script>
+<script type="text/javascript" src="https://unpkg.com/@tonejs/ui@0.0.8/build/tonejs-ui.js"></script>
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+<link rel="stylesheet" href="styleSheet.css">
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+
+<script>
+  async function getSamples() {
+    const response = await axios.get("http://localhost:3000/samples");
+    console.log(response.data);
+  }
+  getSamples();
+</script>
+
+<body>
+  <!-- //////////////////////////////////////////////////////////////////////////
+// TOGGLE PLAY BUTTON
+///////////////////////////////////////////////////////////////////////// -->
+  <tone-content>
+    <tone-play-toggle></tone-play-toggle>
+  </tone-content>
+
+  <script type="text/javascript">
+    document.querySelector("tone-play-toggle").addEventListener("play", (e) => {
+
+      const playing = e.detail;
+
+      if (playing) {
+        Tone.Transport.start();
+      } else {
+        Tone.Transport.stop();
+      }
+    });
+  </script>
+
+  <!-- //////////////////////////////////////////////////////////////////////////////////
+    //RESET BUTTON
+    ///////////////////////////////////////////////////////////////////////////////// -->
+
+  <button id='reset-button' onclick='resetButton()' <span class="iconify" data-icon="entypo:cycle"
+    data-inline="false"></span></button>
+
+  <script>
+    function resetButton() {
+      window.location.reload(true);
+      Tone.Transport.stop();
+      Tone.stop();
+    };
+  </script>
+
+  <!-- //////////////////////////////////////////////////////////////////////////
+    // SEQENCER
+    ///////////////////////////////////////////////////////////////////////// -->
+
+  <div id="seqencer-container">
+    <div id="seqencer-row1">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+    </div>
+
+    <div id="seqencer-row2">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+    </div>
+
+    <div id="seqencer-row3">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+    </div>
+
+    <div id="seqencer-row4">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+    </div>
+
+    <div id="seqencer-row5">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+    </div>
+
+    <div id="seqencer-row6">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+    </div>
+
+    <div id="seqencer-row7">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+    </div>
+
+    <div id="seqencer-row8">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+      <input class="input-box" type="checkbox">
+    </div>
+  </div>
+
+
+  <script>
+    const Players = [
+      new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/kick.wav"), //row 0
+      new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/snare.wav"), //row 1
+      new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/hihat-closed.wav"), //row 2
+      new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/hihat-closed.wav"), //row 3
+      new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/hihat-closed.wav"), //row 4
+      new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/hihat-closed.wav"), //row 5
+      new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/hihat-closed.wav"), //row 6
+      new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/hihat-closed.wav") //row 7
+    ];
+
+    Players.forEach(player => player.toDestination());
+
+    const rows = document.body.querySelectorAll('div > div');
+    let index = 0;
+
+    Tone.Transport.scheduleRepeat(repeat, '16n');
+
+    Tone.Transport.start();
+
+    function repeat(time) {
+      let step = index % 16;
+      for (let i = 0; i < rows.length; i++) {
+        let player = Players[i],
+          row = rows[i],
+          input = row.querySelector(`input:nth-child(${step + 1})`);
+        if (input.checked) player.start(time);
+      }
+      index++;
+    }
+
+    // ////////////////////////////////////////////////////////////////////////
+    // GLOBAL CONTROLS
+    // /////////////////////////////////////////////////////////////////////// 
+
+    Tone.Transport.bpm.value = 130;
+    
+    ////////////////////////////////////////////////////////////////////////
+  </script>
+
+</body>
+</html>
