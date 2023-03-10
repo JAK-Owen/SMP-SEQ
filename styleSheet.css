@@ -1,6 +1,5 @@
 body {
   background-color: black;
-  /* filter: grayscale(); */
   padding-top: 200px;
   width: 100%;
   height: auto;
@@ -9,8 +8,6 @@ body {
 
 #seqencer-container {
   text-align: center;
-  /* font-size: 20px; */
-
 
 }
 
@@ -21,11 +18,10 @@ body {
 
 
 /* Large checkboxes */
+
 .input-box {
   height: 80px;
   width: 80px;
-
-
 
 }
 
@@ -47,7 +43,6 @@ body {
   background-color: grey;
 
 }
-
 
 input[type="checkbox"] {
   appearance: none;
@@ -97,9 +92,7 @@ input:checked {
 }
 
 #reset-button:hover {
-  background-color: white;
-  color: black;
-  border-radius: 10px;
+  color: #e7e7e7;
   cursor: pointer;
 }
 
@@ -111,21 +104,26 @@ input:checked {
   left: 50%;
 }
 
-
-
 #tempo {
   background-color: #000000;
   color: #ffffff;
   border: 2px solid #ffffff;
-  
+  font-size: 15px;
+
 }
 
 #btn {
-background-color: #000000;
-border: none;
-color: #ffffff;
-font-size: 30px;
-font-weight: 600;
-vertical-align: middle;
- 
+  background-color: #000000;
+  border: none;
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 600;
+  vertical-align: middle;
+
+}
+
+#btn:hover {
+  color: #e7e7e7;
+  cursor: pointer;
+
 }
