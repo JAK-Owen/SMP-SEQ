@@ -127,3 +127,10 @@ input:checked {
   cursor: pointer;
 
 }
+
+#oscilloscope {
+  position: absolute;
+ 
+  top: 9%;
+  left: 40%;
+}
