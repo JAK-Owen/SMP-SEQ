@@ -3,11 +3,20 @@ body {
   padding-top: 100px;
   width: 100%;
   height: auto;
+  overflow: hidden; /* Hide scrollbars */
+ 
+}
+
+.global-container {
+  
+  
 }
 
 
 #seqencer-container {
   text-align: center;
+  padding-top: 200px;
+
 
 }
 
@@ -54,6 +63,10 @@ input[type="checkbox"] {
   color: currentColor;
   height: 5vh;
   width: 5vw;
+  max-width: 80px;
+  max-height: 80px;
+  min-width: 20px;
+  min-height: 20px;
   border: 0.15em solid currentColor;
   border-radius: 0.15em;
   transform: translateY(-0.075em);
@@ -101,8 +114,6 @@ input:checked {
 
 .tempo-container {
   position: absolute;
-  margin: 0px;
-  top: 10%;
   left: 50%;
 }
 
@@ -131,9 +142,7 @@ input:checked {
 }
 
 #oscilloscope {
-  position: relative;
-  margin: 0px;
-  top: 8%;
-  left: 40%;
+  position: absolute;
+  left: 50%;
+  padding-top: 40px;
 }
-

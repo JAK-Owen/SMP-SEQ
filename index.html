@@ -18,37 +18,7 @@
 </script>
 
 <body>
-
-
-
-  <div id="gain">V o l u m e</div>
-
-  <div id="oscilloscope"></div>
-
- 
-
-  <!-- //////////////////////////////////////////////////////////////////////////
-// TOGGLE PLAY BUTTON
-///////////////////////////////////////////////////////////////////////// -->
-
-  <tone-content>
-    <tone-play-toggle></tone-play-toggle>
-  </tone-content>
-
-
-
-  <script type="text/javascript">
-    document.querySelector("tone-play-toggle").addEventListener("play", (e) => {
-
-      const playing = e.detail;
-
-      if (playing) {
-        Tone.Transport.start();
-      } else {
-        Tone.Transport.stop();
-      }
-    });
-  </script>
+<div class="global-container">
 
   <!-- //////////////////////////////////////////////////////////////////////////////////
     //TEMPO CONTROL
@@ -59,11 +29,15 @@
     <button id="btn">+</button>
   </div>
 
+
+
+  <div id="oscilloscope"></div>
+
   <!-- //////////////////////////////////////////////////////////////////////////////////
     //RESET BUTTON
     ///////////////////////////////////////////////////////////////////////////////// -->
 
-  <button id='reset-button' onclick='resetButton()' <span class="iconify" data-icon="entypo:cycle"
+  <!-- <button id='reset-button' onclick='resetButton()' <span class="iconify" data-icon="entypo:cycle"
     data-inline="false"></span></button>
 
   <script>
@@ -72,7 +46,7 @@
       Tone.Transport.stop();
       Tone.stop();
     };
-  </script>
+  </script> -->
 
   <!-- //////////////////////////////////////////////////////////////////////////
     // SEQENCER
@@ -232,6 +206,28 @@
     </div>
   </div>
 
+  <!-- //////////////////////////////////////////////////////////////////////////
+// TOGGLE PLAY BUTTON
+///////////////////////////////////////////////////////////////////////// -->
+
+  <tone-content>
+    <tone-play-toggle></tone-play-toggle>
+  </tone-content>
+
+</div>
+
+  <script type="text/javascript">
+    document.querySelector("tone-play-toggle").addEventListener("play", (e) => {
+
+      const playing = e.detail;
+
+      if (playing) {
+        Tone.Transport.start();
+      } else {
+        Tone.Transport.stop();
+      }
+    });
+  </script>
 
   <script>
     const Players = [
@@ -267,12 +263,6 @@
       index++;
     }
 
-    
-
-
-
-
-
     // ////////////////////////////////////////////////////////////////////////
     // TEMPO CONTROL
     // /////////////////////////////////////////////////////////////////////// 
@@ -288,17 +278,14 @@
 
 
     var oscilloscope = new Nexus.Oscilloscope('#oscilloscope', {
-            'size': [200, 100]
-          })
+      'size': [200, 100]
+    })
 
-          oscilloscope.colorize("accent", "white")
-          oscilloscope.colorize("fill", "black")
-          document.body.style.backgroundColor = "#000"
+    oscilloscope.colorize("accent", "white")
+    oscilloscope.colorize("fill", "black")
+    document.body.style.backgroundColor = "#000"
 
-          oscilloscope.connect(volume);
-
-
-    
+    oscilloscope.connect(volume);
   </script>
 
 </body>
