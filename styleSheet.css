@@ -1,6 +1,6 @@
 body {
   background-color: black;
-  padding-top: 200px;
+  padding-top: 100px;
   width: 100%;
   height: auto;
 }
@@ -17,24 +17,26 @@ body {
 }
 
 
+
+
 /* Large checkboxes */
 
 .input-box {
-  height: 80px;
-  width: 80px;
+  height: 5vh;
+  width: 5vw;
 
 }
 
 .input-box[type="checkbox"]:before {
-  width: 20px;
-  height: 20px;
+  width: 5vw;
+  height: 5vh;
 
 }
 
 .input-box[type="checkbox"]:after {
   top: -20px;
-  width: 16px;
-  height: 16px;
+  width: 5vw;
+  height: 5vh;
   color: white;
 
 }
@@ -50,8 +52,8 @@ input[type="checkbox"] {
   margin: 0;
   font: inherit;
   color: currentColor;
-  height: 80px;
-  width: 80px;
+  height: 5vh;
+  width: 5vw;
   border: 0.15em solid currentColor;
   border-radius: 0.15em;
   transform: translateY(-0.075em);
@@ -80,14 +82,14 @@ input:checked {
 
 
 #reset-button {
-  position: absolute;
+  position: fixed;
   background-color: black;
   color: white;
   font-family: monospace;
   font-weight: lighter;
   font-size: 40px;
   top: calc(27% - 100px);
-  left: calc(35% - 200px);
+  left: calc(45% - 200px);
 
 }
 
@@ -99,7 +101,7 @@ input:checked {
 
 .tempo-container {
   position: absolute;
-  margin: 20px;
+  margin: 0px;
   top: 10%;
   left: 50%;
 }
@@ -129,8 +131,9 @@ input:checked {
 }
 
 #oscilloscope {
-  position: absolute;
- 
-  top: 9%;
+  position: relative;
+  margin: 0px;
+  top: 8%;
   left: 40%;
 }
+

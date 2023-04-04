@@ -19,12 +19,13 @@
 
 <body>
 
-
+<div class="global-control-container">
 
   <div id="gain">V o l u m e</div>
 
   <div id="oscilloscope"></div>
 
+ 
 
   <!-- //////////////////////////////////////////////////////////////////////////
 // TOGGLE PLAY BUTTON
@@ -33,6 +34,8 @@
   <tone-content>
     <tone-play-toggle></tone-play-toggle>
   </tone-content>
+
+</div> 
 
   <script type="text/javascript">
     document.querySelector("tone-play-toggle").addEventListener("play", (e) => {
