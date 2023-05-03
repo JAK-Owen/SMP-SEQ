@@ -1,13 +1,18 @@
 body {
   background-color: black;
-  padding-top: 100px;
+  padding-top: 150px;
   width: 100%;
   height: auto;
   overflow: hidden; /* Hide scrollbars */
+  scale: 140%;
  
 }
 
-
+@media only screen and (max-width: 950px) {
+  body {
+    scale: 100%!important;
+  }
+}
 
 #seqencer-container {
   text-align: center;
@@ -42,7 +47,7 @@ body {
   top: -20px;
   width: 5vw;
   height: 5vh;
-  color: white;
+  color: #ffffff;
 
 }
 
@@ -59,10 +64,10 @@ input[type="checkbox"] {
   color: currentColor;
   height: 5vh;
   width: 5vw;
-  max-width: 80px;
-  max-height: 80px;
-  min-width: 20px;
-  min-height: 20px;
+  max-width: 35px;
+  max-height: 35px;
+  min-width: 10px;
+  min-height: 10px;
   border: 0.15em solid currentColor;
   border-radius: 0.15em;
   transform: translateY(-0.075em);
@@ -93,7 +98,7 @@ input:checked {
 #reset-button {
   position: fixed;
   background-color: black;
-  color: white;
+  color: #ffffff;
   font-family: monospace;
   font-weight: lighter;
   font-size: 40px;
@@ -142,3 +147,12 @@ input:checked {
   left: 50%;
   padding-top: 40px;
 }
+
+
+
+tone-play-toggle {
+  width: 40px!important;
+  filter: invert();
+ 
+}
+
