@@ -18,6 +18,8 @@
 
   <div id="tempo-control"></div>
 
+  <div id="master-volume"></div>
+
   <div id="oscilloscope"></div>
 
   <!-- //////////////////////////////////////////////////////////////////////////////////
@@ -228,7 +230,7 @@
       new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/hihat-open-1.wav") //row 7
     ];
 
-    const volume = new Tone.Volume(10).toDestination();
+    const volume = new Tone.Volume().toDestination();
 
     Players.forEach(player => player.connect(volume));
 
@@ -283,6 +285,31 @@
     document.body.style.backgroundColor = "#000"
 
     oscilloscope.connect(volume);
+
+
+    ///////////////////////////////////////////////////////////////////////
+    ///MASTER VOLUME
+    //////////////////////////////////////////////////////////////////////
+
+    var masterVolume = new Nexus.Dial('#master-volume',{
+      'size': [55,55],
+      'interaction': 'vertical', 
+      'mode': 'relative', 
+      'min': -30,
+      'max': 10,
+      'step': 0,
+      'value': 10
+    })
+
+  masterVolume.colorize("accent", "white")
+  masterVolume.colorize("fill", "#333")
+  document.body.style.backgroundColor = "#000"
+
+  masterVolume.on('change',function(v) {
+    volume.volume.value = v;
+})
+    
+
   </script>
 
 </body>
