@@ -1,6 +1,6 @@
 body {
   background-color: black;
-  padding-top: 150px;
+  padding-top: 200px;
   width: 100%;
   height: auto;
   overflow: hidden; /* Hide scrollbars */
@@ -116,6 +116,7 @@ input:checked {
 .tempo-container {
   position: absolute;
   left: 50%;
+  z-index: 2;
 }
 
 #tempo {
@@ -123,7 +124,7 @@ input:checked {
   color: #ffffff;
   border: 2px solid #ffffff;
   font-size: 15px;
-
+  z-index: 2;
 }
 
 #btn {
@@ -156,3 +157,8 @@ tone-play-toggle {
  
 }
 
+#tempo-control {
+  z-index: 2!important;
+  position: absolute;
+  left: 50%;
+}
