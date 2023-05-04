@@ -9,14 +9,6 @@
 <script src="./node_modules/axios/dist/axios.min.js"></script>
 
 
-<script>
-  async function getSamples() {
-    const response = await axios.get("http://localhost:3000/samples");
-    console.log(response.data);
-  }
-  getSamples();
-</script>
-
 <body>
 
 
@@ -265,12 +257,14 @@
 
 
     var number = new Nexus.Number('#tempo-control', {
-      'size': [60, 30],
+      'size': [45, 25],
       'value': 120,
       'min': 0,
       'max': 200,
       'step': 1
     })
+
+  
 
     number.on('change', function (v) {
       Tone.Transport.bpm.value = v;
@@ -281,7 +275,7 @@
 
 
     var oscilloscope = new Nexus.Oscilloscope('#oscilloscope', {
-      'size': [200, 100]
+      'size': [150, 50]
     })
 
     oscilloscope.colorize("accent", "white")

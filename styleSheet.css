@@ -1,6 +1,6 @@
 body {
   background-color: black;
-  padding-top: 200px;
+  padding-top: 250px;
   width: 100%;
   height: auto;
   overflow: hidden; /* Hide scrollbars */
@@ -16,7 +16,7 @@ body {
 
 #seqencer-container {
   text-align: center;
-  padding-top: 200px;
+  padding-top: 100px;
 
 
 }
@@ -152,13 +152,17 @@ input:checked {
 
 
 tone-play-toggle {
-  width: 40px!important;
+  width: 20px!important;
   filter: invert();
- 
+  scale: 75%!important;
+  background-color: none;
+  
 }
+
 
 #tempo-control {
   z-index: 2!important;
   position: absolute;
   left: 50%;
+  
 }
