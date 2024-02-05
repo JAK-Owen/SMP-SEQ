@@ -6,15 +6,12 @@
 <script type="text/javascript" src="https://unpkg.com/@tonejs/ui@0.0.8/build/tonejs-ui.js"></script>
 <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 <link rel="stylesheet" href="styleSheet.css">
-<script src="./node_modules/axios/dist/axios.min.js"></script>
-
 
 <body>
 
-
   <!-- //////////////////////////////////////////////////////////////////////////////////
-    //TEMPO CONTROL
-    ///////////////////////////////////////////////////////////////////////////////// -->
+            //TEMPO CONTROL
+            ///////////////////////////////////////////////////////////////////////////////// -->
 
   <div id="tempo-control"></div>
 
@@ -22,24 +19,9 @@
 
   <div id="oscilloscope"></div>
 
-  <!-- //////////////////////////////////////////////////////////////////////////////////
-    //RESET BUTTON
-    ///////////////////////////////////////////////////////////////////////////////// -->
-
-  <!-- <button id='reset-button' onclick='resetButton()' <span class="iconify" data-icon="entypo:cycle"
-    data-inline="false"></span></button>
-
-  <script>
-    function resetButton() {
-      window.location.reload(true);
-      Tone.Transport.stop();
-      Tone.stop();
-    };
-  </script> -->
-
   <!-- //////////////////////////////////////////////////////////////////////////
-    // SEQENCER
-    ///////////////////////////////////////////////////////////////////////// -->
+            // SEQENCER
+            ///////////////////////////////////////////////////////////////////////// -->
 
   <div id="seqencer-container">
     <div id="seqencer-row1">
@@ -196,121 +178,14 @@
   </div>
 
   <!-- //////////////////////////////////////////////////////////////////////////
-// TOGGLE PLAY BUTTON
-///////////////////////////////////////////////////////////////////////// -->
+        // TOGGLE PLAY BUTTON
+        ///////////////////////////////////////////////////////////////////////// -->
 
   <tone-content>
     <tone-play-toggle></tone-play-toggle>
   </tone-content>
-
-
-
-  <script type="text/javascript">
-    document.querySelector("tone-play-toggle").addEventListener("play", (e) => {
-
-      const playing = e.detail;
-
-      if (playing) {
-        Tone.Transport.start();
-      } else {
-        Tone.Transport.stop();
-      }
-    });
-  </script>
-
-  <script>
-    const Players = [
-      new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/kick.wav"), //row 0
-      new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/snare.wav"), //row 1
-      new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/clap-1.wav"), //row 2
-      new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/clap-2.wav"), //row 3
-      new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/hihat-closed.wav"), //row 4
-      new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/tom-h.wav"), //row 5
-      new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/tom-l.wav"), //row 6
-      new Tone.Player("https://oramics.github.io/sampled/DM/TR-909/Detroit/samples/hihat-open-1.wav") //row 7
-    ];
-
-    const volume = new Tone.Volume().toDestination();
-
-    Players.forEach(player => player.connect(volume));
-
-    const rows = document.body.querySelectorAll('div > div');
-    let index = 0;
-
-    Tone.Transport.scheduleRepeat(repeat, '16n');
-
-    Tone.Transport.start();
-
-    function repeat(time) {
-      let step = index % 16;
-      for (let i = 0; i < rows.length; i++) {
-        let player = Players[i],
-          row = rows[i],
-          input = row.querySelector(`input:nth-child(${step + 1})`);
-        if (input.checked) player.start(time);
-      }
-      index++;
-    }
-
-    // ////////////////////////////////////////////////////////////////////////
-    // TEMPO CONTROL
-    // /////////////////////////////////////////////////////////////////////// 
-
-
-
-    var number = new Nexus.Number('#tempo-control', {
-      'size': [45, 25],
-      'value': 120,
-      'min': 0,
-      'max': 200,
-      'step': 1
-    })
-
   
-
-    number.on('change', function (v) {
-      Tone.Transport.bpm.value = v;
-    })
-
-
-    ////////////////////////////////////////////////////////////////////////
-
-
-    var oscilloscope = new Nexus.Oscilloscope('#oscilloscope', {
-      'size': [150, 50]
-    })
-
-    oscilloscope.colorize("accent", "white")
-    oscilloscope.colorize("fill", "black")
-    document.body.style.backgroundColor = "#000"
-
-    oscilloscope.connect(volume);
-
-
-    ///////////////////////////////////////////////////////////////////////
-    ///MASTER VOLUME
-    //////////////////////////////////////////////////////////////////////
-
-    var masterVolume = new Nexus.Dial('#master-volume',{
-      'size': [55,55],
-      'interaction': 'vertical', 
-      'mode': 'relative', 
-      'min': -30,
-      'max': 10,
-      'step': 0,
-      'value': 10
-    })
-
-  masterVolume.colorize("accent", "white")
-  masterVolume.colorize("fill", "#333")
-  document.body.style.backgroundColor = "#000"
-
-  masterVolume.on('change',function(v) {
-    volume.volume.value = v;
-})
-    
-
-  </script>
+  <script src="script.js"></script>
 
 </body>
 
