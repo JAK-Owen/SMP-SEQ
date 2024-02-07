@@ -104,12 +104,17 @@ body {
   }
 }
 
-#seqencer-container {
+#sequencer-container {
   text-align: center;
   padding-top: 100px;
 }
 
-#sequencer-container:hover {
+.sequencer-row {
+  display: flex;
+  justify-content: center;
+}
+
+.sequencer-row:hover {
   background-color: grey;
 }
 
