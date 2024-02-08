@@ -34,8 +34,63 @@ document.addEventListener('DOMContentLoaded', function () {
     checkboxes.push(rowCheckboxes);
   }
 
+  // Function to create an SVG element for play icon
+  function createPlaySVG() {
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    svg.setAttribute("width", "20px");
+    svg.setAttribute("height", "20px");
+    svg.setAttribute("viewBox", "0 0 16 16");
+
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("fill", "white");
+    path.setAttribute("d", "M14.005 7.134L5.5 2.217a1 1 0 0 0-1.5.866v9.834a1 1 0 0 0 1.5.866l8.505-4.917a1 1 0 0 0 0-1.732m.751 3.03c1.665-.962 1.665-3.366 0-4.329L6.251.918C4.585-.045 2.5 1.158 2.5 3.083v9.834c0 1.925 2.085 3.128 3.751 2.164z");
+
+    svg.appendChild(path);
+    return svg;
+  }
+
+  // Function to create an SVG element for pause icon
+function createPauseSVG() {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+  svg.setAttribute("width", "40px");
+  svg.setAttribute("height", "40px");
+  svg.setAttribute("viewBox", "0 0 25 32");
+
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  path.setAttribute("fill", "white");
+  path.setAttribute("d", "M14 19V5h4v14zm-8 0V5h4v14z");
+
+  svg.style.margin = "auto";
+  svg.style.display = "block";
+
+  svg.appendChild(path);
+  return svg;
+}
+
+
+  // Flag to track the play state
+  let isPlaying = false;
+
+  // Reference to the Nexus UI play toggle button
+  const playToggle = document.querySelector("#nexus-play-toggle");
+
+  // Create play and pause SVG elements
+  const playSVG = createPlaySVG();
+  const pauseSVG = createPauseSVG();
+
+  // Set the initial play icon
+  playToggle.appendChild(playSVG);
+
   // Event listener for the Nexus UI play toggle button
-  document.querySelector("#nexus-play-toggle").addEventListener("click", function () {
+  playToggle.addEventListener("click", function () {
+    // Toggle the play state
+    isPlaying = !isPlaying;
+
+    // Update the SVG based on the play state
+    updatePlayToggleSVG();
+
     // Ensure Tone context is started before playing
     if (Tone.context.state !== 'running') {
       Tone.start();
@@ -49,6 +104,38 @@ document.addEventListener('DOMContentLoaded', function () {
       Tone.Transport.start();
     }
   });
+
+  // Function to update the SVG of the play toggle button
+  function updatePlayToggleSVG() {
+    // Remove existing SVG
+    while (playToggle.firstChild) {
+      playToggle.removeChild(playToggle.firstChild);
+    }
+
+    // Append the appropriate SVG based on the play state
+    if (isPlaying) {
+      playToggle.appendChild(pauseSVG);
+    } else {
+      playToggle.appendChild(playSVG);
+    }
+  }
+
+  // Function to update the background image of the play toggle button
+  function updatePlayToggleBackground() {
+    // Get the play toggle container
+    const playToggle = document.querySelector("#nexus-play-toggle");
+
+    // Create the SVG based on the play state
+    const svg = isPlaying ? createPauseSVG() : createPlaySVG();
+
+    // Remove existing children of the play toggle container
+    while (playToggle.firstChild) {
+      playToggle.removeChild(playToggle.firstChild);
+    }
+
+    // Append the SVG to the play toggle container
+    playToggle.appendChild(svg);
+  }
 
   // URLs for the audio samples
   const playerUrls = [
@@ -76,8 +163,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Schedule a repeating function on Tone.Transport
   Tone.Transport.scheduleRepeat(repeat, "16n");
-
-
 
   // Function to be repeated on each step of the sequencer
   function repeat(time) {
