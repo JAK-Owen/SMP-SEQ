@@ -1,4 +1,3 @@
-// Wait for the DOM to be fully loaded before executing the script
 document.addEventListener('DOMContentLoaded', function () {
   // Get the container element for the step sequencer
   const sequencerContainer = document.getElementById('sequencer-container');
@@ -24,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
       checkbox.className = 'input-box';
-      
+
       // Append the checkbox to the row and add it to the array
       row.appendChild(checkbox);
       rowCheckboxes.push(checkbox);
@@ -35,15 +34,19 @@ document.addEventListener('DOMContentLoaded', function () {
     checkboxes.push(rowCheckboxes);
   }
 
-  // Event listener for the play toggle button
-  document.querySelector("tone-play-toggle").addEventListener("play", (e) => {
-    const playing = e.detail;
+  // Event listener for the Nexus UI play toggle button
+  document.querySelector("#nexus-play-toggle").addEventListener("click", function () {
+    // Ensure Tone context is started before playing
+    if (Tone.context.state !== 'running') {
+      Tone.start();
+    }
 
     // Start or stop Tone.Transport based on the play state
-    if (playing) {
-      Tone.Transport.start();
-    } else {
+    if (Tone.Transport.state === "started") {
       Tone.Transport.stop();
+    } else {
+      // Start Tone.Transport
+      Tone.Transport.start();
     }
   });
 
@@ -74,8 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Schedule a repeating function on Tone.Transport
   Tone.Transport.scheduleRepeat(repeat, "16n");
 
-  // Start Tone.Transport
-  Tone.Transport.start();
+
 
   // Function to be repeated on each step of the sequencer
   function repeat(time) {
@@ -94,8 +96,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Tempo Control using NexusUI
-  var number = new Nexus.Number("#tempo-control", {
-    size: [45, 25],
+  var number = new Nexus.Number("#nexus-tempo-control", {
+    size: [50, 30],
     value: 120,
     min: 0,
     max: 200,
@@ -109,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Oscilloscope using NexusUI
   var oscilloscope = new Nexus.Oscilloscope("#oscilloscope", {
-    size: [150, 50]
+    size: [40, 40]
   });
 
   // Customize oscilloscope appearance
