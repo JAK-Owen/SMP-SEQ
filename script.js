@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Master Volume control using NexusUI
   var masterVolume = new Nexus.Dial("#master-volume", {
-    size: [55, 55],
+    size: [45, 45],
     interaction: "vertical",
     mode: "relative",
     min: -30,

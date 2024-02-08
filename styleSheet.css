@@ -1,249 +1,190 @@
+/* General Styles */
 body {
-  background-color: black;
-  padding-top: 100px;
-  width: 100%;
-  min-width: 700px;
-  height: auto;
-  overflow: hidden; /* Hide scrollbars */
-  scale: 100%;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
 }
 
-@media only screen and (max-width: 950px) {
-  body {
-    scale: 100% !important;
-    padding-top: 50px; /* Adjust padding for smaller screens */
-  }
 
-  #seqencer-container {
-    padding-top: 50px; /* Adjust padding for smaller screens */
-  }
 
-  .input-box {
-    height: 20px;
-    width: 20px;
-  }
-
-  .input-box[type="checkbox"]:before {
-    width: 20px;
-    height: 20px;
-  }
-
-  .input-box[type="checkbox"]:after {
-    top: -15px;
-    width: 20px;
-    height: 20px;
-  }
-
-  #reset-button {
-    position: fixed;
-    background-color: black;
-    color: #ffffff;
-    font-family: monospace;
-    font-weight: lighter;
-    font-size: 40px;
-    top: calc(27% - 50px);
-    left: calc(45% - 100px);
-  }
-
-  #reset-button:hover {
-    color: #e7e7e7;
-    cursor: pointer;
-  }
-
-  .tempo-container {
-    position: absolute;
-    left: 50%;
-    z-index: 2;
-  }
-
-  #tempo {
-    background-color: #000000;
-    color: #ffffff;
-    border: 2px solid #ffffff;
-    font-size: 15px;
-    z-index: 2;
-  }
-
-  #btn {
-    background-color: #000000;
-    border: none;
-    color: #ffffff;
-    font-size: 30px;
-    font-weight: 600;
-    vertical-align: middle;
-  }
-
-  #btn:hover {
-    color: #e7e7e7;
-    cursor: pointer;
-  }
-
-  #oscilloscope {
-    position: absolute;
-    left: 50%;
-    padding-top: 40px;
-  }
-
-  tone-play-toggle {
-    width: 20px !important;
-    filter: invert();
-    scale: 75% !important;
-    background-color: none;
-  }
-
-  #tempo-control {
-    z-index: 2 !important;
-    position: absolute;
-    left: 50%;
-  }
-
-  #master-volume {
-    z-index: 2 !important;
-    position: absolute;
-    left: 30%;
-  }
+#top-container {
+  position: absolute;
+    top: 10%;
+    left: 10%;
+    transform: translate(-50%, -50%);
 }
 
-#sequencer-container {
-  text-align: center;
-  padding-top: 100px;
+#middle-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#bottom-container {
+  position: absolute;
+  top: 90%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+
+/* Sequencer Styles */
+.sequencer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 5%;
+}
+
+#sequencer-grid {
+    text-align: center;
 }
 
 .sequencer-row {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .sequencer-row:hover {
-  background-color: grey;
+    background-color: #555555;
 }
 
 /* Large checkboxes */
-
 .input-box {
-  height: 30px;
-  width: 30px;
+    height: 80px;
+    width: 80px;
 }
 
 .input-box[type="checkbox"]:before {
-  width: 30px;
-  height: 30px;
+    width: 80px;
+    height: 80px;
 }
 
 .input-box[type="checkbox"]:after {
-  top: -20px;
-  width: 30px;
-  height: 30px;
-  color: #ffffff;
+    top: -2vw;
+    width: 80px;
+    height: 80px;
+    color: #ffffff;
 }
 
 .input-box:hover {
-  background-color: grey;
+    background-color: grey;
 }
 
 input[type="checkbox"] {
-  appearance: none;
-  background-color: #ffffff;
-  margin: 0;
-  font: inherit;
-  color: currentColor;
-  height: 30px;
-  width: 30px;
-  max-width: 35px;
-  max-height: 35px;
-  min-width: 10px;
-  min-height: 10px;
-  border: 0.15em solid currentColor;
-  border-radius: 0.15em;
-  transform: translateY(-0.075em);
+    appearance: none;
+    background-color: #ffffff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    height: 80px;
+    width: 80px;
+    max-width: 4.5vw;
+    max-height: 4.5vw;
+    min-width: 20px;
+    min-height: 20px;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
 }
 
 input[type="checkbox"]::after {
-  appearance: none;
-  background-color: grey;
-  margin: 0;
-  font: inherit;
-  color: currentColor;
-  border: 0.15em solid currentColor;
-  border-radius: 0.15em;
-  transform: translateY(-0.075em);
+    appearance: none;
+    background-color: grey;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
 }
 
 input[type="checkbox"]:after {
-  background-color: #333333;
-  outline: max(2px, 0.15em) solid currentColor;
-  outline-offset: max(2px, 0.15em);
+    background-color: #333333;
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
 }
 
 input:checked {
-  box-shadow: inset 0 0 0 40px #333333;
+    box-shadow: inset 0 0 0 80px #333333;
 }
 
-#reset-button {
-  position: fixed;
-  background-color: black;
-  color: #ffffff;
-  font-family: monospace;
-  font-weight: lighter;
-  font-size: 40px;
-  top: calc(27% - 100px);
-  left: calc(45% - 200px);
-}
 
-#reset-button:hover {
-  color: #e7e7e7;
-  cursor: pointer;
-}
-
+/* Tempo Container Styles */
 .tempo-container {
-  position: absolute;
-  left: 50%;
-  z-index: 2;
+    position: absolute;
+    z-index: 2;
+    
 }
 
+/* Tempo Styles */
 #tempo {
-  background-color: #000000;
-  color: #ffffff;
-  border: 2px solid #ffffff;
-  font-size: 15px;
-  z-index: 2;
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    font-size: 1.5vw;
+    z-index: 2;
+    
 }
 
+/* Button Styles */
 #btn {
-  background-color: #000000;
-  border: none;
-  color: #ffffff;
-  font-size: 30px;
-  font-weight: 600;
-  vertical-align: middle;
+    background-color: #000000;
+    border: none;
+    color: #ffffff;
+    font-size: 80px;
+    font-weight: 600;
+    vertical-align: middle;
 }
 
 #btn:hover {
-  color: #e7e7e7;
-  cursor: pointer;
+    color: #e7e7e7;
+    cursor: pointer;
 }
 
+/* Oscilloscope Styles */
 #oscilloscope {
-  position: absolute;
-  left: 50%;
-  padding-top: 40px;
+    position: absolute;
+    left: 250px;
+    bottom: 0%;
 }
 
+/* Tone Play Toggle Styles */
 tone-play-toggle {
-  width: 20px !important;
-  filter: invert();
-  scale: 75% !important;
-  background-color: none;
+    width: 40px !important;
+    height: 45px !important;
+    filter: invert();
+    background-color: none;
+    display: block;
+    margin: auto;
+    box-shadow: none;
+    outline: none;
 }
 
+tone-play-toggle:hover,
+tone-play-toggle:active {
+    box-shadow: none;
+    outline: none;
+}
+
+/* Tempo Control Styles */
 #tempo-control {
-  z-index: 2 !important;
-  position: absolute;
-  left: 50%;
+    z-index: 2 !important;
+    position: fixed;
+    left: 170px;
+    bottom: 5%;
+    
 }
 
+/* Master Volume Styles */
 #master-volume {
-  z-index: 2 !important;
-  position: absolute;
-  left: 40%;
+    z-index: 2 !important;
+    position: fixed;
+    left: 100px;
+    bottom: 0%;
 }
+

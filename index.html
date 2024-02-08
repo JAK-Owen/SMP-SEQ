@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <link rel="stylesheet" href="styleSheet.css">
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.6/Tone.js'></script>
@@ -13,19 +13,26 @@
 </head>
 
 <body>
+ 
+  <!-- Top Container -->
+  <div id="top-container">
 
-  <!-- TEMPO CONTROL -->
-  <div id="tempo-control"></div>
-  <div id="master-volume"></div>
-  <div id="oscilloscope"></div>
+  </div>
 
-  <!-- SEQUENCER -->
-  <div id="sequencer-container"></div>
+  <!-- Middle Container -->
+  <div id="middle-container">
+    <!-- Sequencer Container -->
+    <div id="sequencer-container"></div>
+  </div>
 
-  <!-- TOGGLE PLAY BUTTON -->
-  <tone-content>
-    <tone-play-toggle></tone-play-toggle>
-  </tone-content>
+  <!-- Bottom Container -->
+  <div id="bottom-container">
+    <div id="master-volume"></div>
+    <div id="tempo-control"></div>
+    <div id="oscilloscope"></div>
+    <!-- TOGGLE PLAY BUTTON -->
+      <tone-play-toggle></tone-play-toggle>
+  </div>
 
   <script src="script.js"></script>
 </body>
